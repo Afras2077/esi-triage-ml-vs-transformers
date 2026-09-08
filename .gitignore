@@ -1,1 +1,38 @@
-﻿venv/
+﻿# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data (large files — use DVC or store externally)
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/
+
+# Model weights (large files)
+models/transformers/
+models/classical/*.pkl
+models/classical/*.joblib
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Experiment results (optional — keep figures, skip raw metric dumps)
+results/metrics/*.json
+
+# Environment
+.env
+*.log
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,57 @@
+﻿# ============================================================
+# ESI Triage: ML vs Transformers — Central Configuration
+# ============================================================
+
+project:
+  name: "esi-triage-ml-vs-transformers"
+  seed: 42
+  target_column: "ESI"
+  text_column: "chief_complaint"
+
+data:
+  raw_path: "data/raw/fedmml_ed_triage_dataset.csv"
+  processed_train: "data/processed/train.csv"
+  processed_val: "data/processed/val.csv"
+  processed_test: "data/processed/test.csv"
+  test_size: 0.15
+  val_size: 0.15
+
+preprocessing:
+  lowercase: true
+  remove_punctuation: true
+  remove_stopwords: false
+  lemmatize: true
+  max_text_length: 512
+
+classical_models:
+  tfidf:
+    max_features: 50000
+    ngram_range: [1, 2]
+    sublinear_tf: true
+  models:
+    - logistic_regression
+    - random_forest
+    - svm
+    - xgboost
+    - naive_bayes
+
+transformer_models:
+  base_model: "emilyalsentzer/Bio_ClinicalBERT"
+  max_length: 128
+  batch_size: 32
+  epochs: 5
+  learning_rate: 2e-5
+  warmup_steps: 500
+  weight_decay: 0.01
+  output_dir: "models/transformers/"
+
+evaluation:
+  metrics:
+    - accuracy
+    - weighted_f1
+    - macro_f1
+    - cohen_kappa
+    - confusion_matrix
+    - roc_auc
+  results_dir: "results/metrics/"
+  figures_dir: "results/figures/"
