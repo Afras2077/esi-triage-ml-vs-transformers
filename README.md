@@ -1,4 +1,4 @@
-﻿# 🏥 Text-Based Patient Urgency Classification
+﻿#  Text-Based Patient Urgency Classification
 
 ## A Comparative Study of Fine-Tuned Transformers vs. Classical Machine Learning for Emergency Department Triage
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Background](#-background)
 - [Dataset](#-dataset)
@@ -20,7 +20,7 @@
 
 ---
 
-## 🔍 Background
+##  Background
 
 Emergency Department (ED) triage is a critical bottleneck in healthcare systems worldwide. Accurate urgency classification — using the **5-level Emergency Severity Index (ESI)** — directly impacts patient outcomes. Manual triage is time-consuming and subject to inter-rater variability.
 
@@ -33,7 +33,7 @@ This study investigates whether **fine-tuned biomedical transformer models** (e.
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 | Property | Value |
 |---|---|
@@ -43,16 +43,16 @@ This study investigates whether **fine-tuned biomedical transformer models** (e.
 | **Primary Feature** | Free-text chief complaint |
 | **Task** | Multi-class text classification |
 
-> ⚠️ The raw CSV is excluded from version control (see `.gitignore`). Place it manually in `data/raw/` after cloning.
+>  The raw CSV is excluded from version control (see `.gitignore`). Place it manually in `data/raw/` after cloning.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 esi-triage-ml-vs-transformers/
 │
-├── 📂 data/
+├──  data/
 │   ├── raw/                        # Original, immutable source data
 │   │   └── fedmml_ed_triage_dataset.csv
 │   ├── processed/                  # Train/val/test splits (auto-generated)
@@ -61,14 +61,14 @@ esi-triage-ml-vs-transformers/
 │   │   └── test.csv
 │   └── external/                   # Any third-party lookup tables / ICD codes
 │
-├── 📂 notebooks/                   # Ordered Jupyter analysis notebooks
+├──  notebooks/                   # Ordered Jupyter analysis notebooks
 │   ├── 01_data_exploration.ipynb   # EDA: distributions, class balance, text stats
 │   ├── 02_preprocessing.ipynb      # Text cleaning, tokenisation, TF-IDF inspection
 │   ├── 03_classical_ml.ipynb       # Train & evaluate classical ML baselines
 │   ├── 04_transformer_finetuning.ipynb  # Fine-tune Bio_ClinicalBERT / BERT
 │   └── 05_evaluation_comparison.ipynb  # Side-by-side comparison & statistical tests
 │
-├── 📂 src/                         # Reusable Python source modules
+├──  src/                         # Reusable Python source modules
 │   ├── __init__.py
 │   ├── data/
 │   │   ├── __init__.py
@@ -91,25 +91,25 @@ esi-triage-ml-vs-transformers/
 │       ├── __init__.py
 │       └── helpers.py              # Seed setting, config loading, logging helpers
 │
-├── 📂 models/                      # Serialised model artifacts (git-ignored)
+├──  models/                      # Serialised model artifacts (git-ignored)
 │   ├── classical/                  # Saved .joblib classifiers + TF-IDF vectoriser
 │   └── transformers/               # Fine-tuned checkpoint directories
 │
-├── 📂 results/
+├──  results/
 │   ├── figures/                    # Confusion matrices, ROC curves, bar charts
 │   ├── metrics/                    # JSON / CSV metric tables per model
 │   └── reports/                    # Final PDF / markdown summary reports
 │
-├── 📂 configs/
+├──  configs/
 │   └── config.yaml                 # Central experiment configuration (paths, HPs)
 │
-├── 📂 tests/
+├──  tests/
 │   ├── __init__.py
 │   ├── test_preprocess.py          # Unit tests for data pipeline
 │   ├── test_feature_engineering.py
 │   └── test_evaluate.py
 │
-├── 📂 docs/
+├──  docs/
 │   └── references/                 # Key papers (PDFs / BibTeX)
 │
 ├── .gitignore
@@ -119,7 +119,7 @@ esi-triage-ml-vs-transformers/
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ### 1. Clone the Repository
 
@@ -159,7 +159,7 @@ Copy `fedmml_ed_triage_dataset.csv` into `data/raw/`.
 
 ---
 
-## 🧪 Experiment Workflow
+##  Experiment Workflow
 
 Run notebooks **in order**, or use the `src/` modules directly:
 
@@ -186,7 +186,7 @@ python -m src.models.transformers.train_transformer
 
 ---
 
-## 📈 Results
+##  Results
 
 > *(To be populated after experiments are complete)*
 
@@ -203,7 +203,7 @@ Figures are saved to `results/figures/` and a full report to `results/reports/`.
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 All experiment settings live in `configs/config.yaml`:
 
@@ -220,7 +220,7 @@ Edit this file to switch models, adjust hyperparameters, or change data paths wi
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/my-experiment`
@@ -230,7 +230,7 @@ Edit this file to switch models, adjust hyperparameters, or change data paths wi
 
 ---
 
-## 📄 Citation
+##  Citation
 
 If you use this code or findings in your research, please cite:
 
@@ -247,7 +247,7 @@ If you use this code or findings in your research, please cite:
 
 ---
 
-## 📚 References
+##  References
 
 - Wier, L. M., et al. (2011). Emergency Severity Index (ESI): A Triage Tool for Emergency Department Care. AHRQ.
 - Alsentzer, E., et al. (2019). Publicly Available Clinical BERT Embeddings. NAACL Clinical NLP Workshop.
